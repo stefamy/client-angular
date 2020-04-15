@@ -1,12 +1,8 @@
 <div class="container-fluid">
   <h2>Course List</h2>
-<!--  <input [(ngModel)]="courseTitle"/>-->
-<!--  <button (click)="addCourse(courseTitle)">-->
-<!--    Create Course-->
-<!--  </button>-->
   <ul>
     <li *ngFor="let course of courses">
-      <a href="/list/courses/{{course._id}}">
+      <a routerLink="/list/courses/{{course._id}}">
         {{course.title}}
       </a>
     </li>
