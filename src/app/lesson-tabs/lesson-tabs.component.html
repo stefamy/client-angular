@@ -1,9 +1,6 @@
-<h3>Lessons</h3>
-<ul class="list-group">
-  <li class="list-group-item"
-      [class]="{'active': lessonId === lesson._id}"
-      *ngFor="let lesson of lessons">
-    <a routerLink="/{{layout}}/courses/{{courseId}}/modules/{{moduleId}}/lessons/{{lesson._id}}">
+<ul class="nav nav-tabs">
+  <li class="nav-item" *ngFor="let lesson of lessons">
+    <a class="nav-link" [class]="{'active': lessonId === lesson._id}" routerLink="/{{layout}}/courses/{{courseId}}/modules/{{moduleId}}/lessons/{{lesson._id}}">
         {{lesson.title}}
     </a>
   </li>
