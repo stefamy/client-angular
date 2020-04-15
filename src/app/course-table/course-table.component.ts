@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
 import {CourseServiceClient} from '../services/CourseServiceClient';
 
 @Component({
@@ -10,15 +9,12 @@ import {CourseServiceClient} from '../services/CourseServiceClient';
 
 export class CourseTableComponent implements OnInit {
 
-  constructor(private service: CourseServiceClient, private route: ActivatedRoute) { }
+  constructor(private service: CourseServiceClient) { }
 
   courses = [ ];
-
   ngOnInit(): void {
     this.service.findAllCourses().then(courses => this.courses = courses)
     .then(() => this.courses.forEach(course => course.newDate = new Date(course.lastModified)));
   }
-
-
 
 }

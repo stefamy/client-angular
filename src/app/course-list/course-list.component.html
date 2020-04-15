@@ -6,12 +6,9 @@
 <!--  </button>-->
   <ul>
     <li *ngFor="let course of courses">
-      <a href="/course-viewer/{{course._id}}">
+      <a href="/list/courses/{{course._id}}">
         {{course.title}}
       </a>
-      <button (click)="deleteCourse(course)">
-        Delete
-      </button>
     </li>
   </ul>
 </div>

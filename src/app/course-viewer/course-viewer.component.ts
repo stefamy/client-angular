@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {CourseServiceClient} from '../services/CourseServiceClient';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-course-viewer',
@@ -11,15 +12,15 @@ export class CourseViewerComponent implements OnInit {
 
   constructor(private service: CourseServiceClient,
               private route: ActivatedRoute) { }
-
-  course = {
-    title: 'Dummy Course'
-  }
+  course = { }
+  layout = '';
   ngOnInit(): void {
     this.route.params.subscribe(params => {
+      this.layout = params.layout;
       const courseId = params.courseId;
       this.service.findCourseById(courseId)
         .then(course => this.course = course);
     });
   }
 }
+

@@ -10,15 +10,9 @@ export class CourseListComponent implements OnInit {
 
   constructor(private service: CourseServiceClient) { }
 
-  courses = [
-    {_id: '123', title: 'Course A'},
-    {_id: '123', title: 'Course B'},
-    {_id: '123', title: 'Course C'}
-  ];
-  deleteCourse = (deletedCourse) =>
-    this.courses = this.courses.filter(course => course !== deletedCourse)
+  courses = [];
   ngOnInit(): void {
-    this.service.findAllCourses()
+      this.service.findAllCourses()
       .then(courses => this.courses = courses);
   }
 }

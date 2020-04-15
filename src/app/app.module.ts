@@ -13,6 +13,7 @@ import {ModuleServiceClient} from './services/ModuleServiceClient';
 import { LessonTabsComponent } from './lesson-tabs/lesson-tabs.component';
 import {LessonServiceClient} from './services/LessonServiceClient';
 import { TopicPillsComponent } from './topic-pills/topic-pills.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TopicPillsComponent } from './topic-pills/topic-pills.component';
     CourseViewerComponent,
     ModuleListComponent,
     LessonTabsComponent,
-    TopicPillsComponent
+    TopicPillsComponent,
+    HomeComponent
   ],
   imports: [
     FormsModule,

@@ -5,13 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'Hello From Component';
-  students = [
-    'Alice', 'Bob', 'Charlie'
-  ];
-  faculty = [
-    {username: 'ada', first: 'Ada'},
-    {username: 'tlee', first: 'Tim'}
-  ];
-}
+export class AppComponent { }

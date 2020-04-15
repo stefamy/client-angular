@@ -16,11 +16,13 @@ export class LessonTabsComponent implements OnInit {
   lessonId = ''
   moduleId = ''
   courseId = ''
+  layout = ''
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.lessonId = params.lessonId;
       this.moduleId = params.moduleId;
       this.courseId = params.courseId;
+      this.layout = params.layout;
       this.service.findLessonsForModule(this.moduleId)
         .then(lessons => this.lessons = lessons);
     });
