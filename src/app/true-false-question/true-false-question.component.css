@@ -1,0 +1,6 @@
+.list-group-item input[type=radio] {
+  position: relative;
+  top: -1px;
+  margin-right: 5px;
+  display: inline-block;
+}

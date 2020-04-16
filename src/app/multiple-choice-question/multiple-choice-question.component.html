@@ -1,17 +1,26 @@
-<h3>Multiple Choice</h3>
-<h4>What is your favorite color?</h4>
-
-<!--<div *ngFor="let option of question.options">-->
-<!--  <label>-->
-<!--    <input [(ngModel)]="answer"-->
-<!--           type="radio"-->
-<!--           value="{{option}}"-->
-<!--           name="{{question._id}}"/> {{option}}-->
-<!--  </label>-->
-<!--</div>-->
-<!--Your answer: {{answer}}-->
-
-<!--<br/>-->
-<!--<button (click)="submitAnswer()">-->
-<!--  Submit Answer-->
-<!--</button>-->
+<h4>{{question.question}}
+  <span class="grade-result" [hidden]="!graded">
+      <i [hidden]="!result" class="fa fa-check text-success"></i>
+      <i [hidden]="result" class="fa fa-close text-danger"></i>
+    </span>
+</h4>
+<div class="list-group mt-3">
+    <label *ngFor="let choices of question.choices" class="mb-0 list-group-item
+      {{!graded ? 'list-group-item-action' : ''}}
+      {{graded && choices === question.correct ? 'correct-response' : ''}}
+      {{graded && choices === answer && choices !== question.correct ? 'incorrect-response' : ''}}">
+      <input [(ngModel)]="answer"
+             type="radio"
+             value="{{choices}}"
+             disabled="{{graded}}"
+             name="{{question._id}}"/> {{choices}}
+       <span class="answer-reveal" [hidden]="!graded || (choices !== answer && choices !== question.correct)">
+        <i [hidden]="choices !== question.correct" class="fa fa-check text-success float-right"></i>
+        <i [hidden]="choices === question.correct" class="fa fa-close text-danger float-right"></i>
+      </span>
+    </label>
+  </div>
+<div class="mt-3 mb-3">
+  Your answer: {{answer}}
+</div>
+<button class="btn btn-success" (click)="submitAnswer()" type="submit">Grade</button>

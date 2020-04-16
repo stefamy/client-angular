@@ -59,6 +59,18 @@ a.home-link:active {
   font-size: 30px;
 }
 
+.question .correct-response.list-group-item {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.question .incorrect-response.list-group-item {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
 @media all and (min-width: 768px) {
   .featured-image-banner {
     height: 250px;
