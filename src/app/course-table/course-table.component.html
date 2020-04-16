@@ -6,9 +6,16 @@
     <div class="width-limiter pt-3 pb-3">
       <div class="mb-3"><a routerLink="/"><i class="fa fa-arrow-left"></i> Back home</a></div>
       <div class="list-group">
-        <a *ngFor="let course of courses" href="/table/courses/{{course._id}}" class="list-group-item list-group-item-action text-primary"> <i class="fa fa-file"></i>
-          {{course.title}}
-        </a>
+        <div *ngFor="let course of courses" class="list-group-item d-flex list-item-course">
+          <div class="col">
+            <a routerLink="/table/courses/{{course._id}}"> <i class="fa fa-file"></i>
+            {{course.title}}
+            </a>
+          </div>
+          <div class="col-auto">
+            <a routerLink="/courses/{{course._id}}/quizzes" >Quizzes</a>
+          </div>
+        </div>
     </div>
   </div>
 
