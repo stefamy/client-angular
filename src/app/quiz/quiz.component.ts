@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {QuizServiceClient} from '../services/QuizServiceClient';
+import {QuestionServiceClient} from '../services/QuestionServiceClient';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class QuizComponent implements OnInit {
 
-  constructor(private service: QuizServiceClient,
+  constructor(private service: QuestionServiceClient,
               private route: ActivatedRoute) { }
 
   quizId = ''

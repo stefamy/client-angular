@@ -13,8 +13,8 @@ import {ModuleServiceClient} from './services/ModuleServiceClient';
 import { LessonTabsComponent } from './lesson-tabs/lesson-tabs.component';
 import {LessonServiceClient} from './services/LessonServiceClient';
 import { TopicPillsComponent } from './topic-pills/topic-pills.component';
+import {QuestionServiceClient} from './services/QuestionServiceClient';
 import {QuizServiceClient} from './services/QuizServiceClient';
-import {QuizzesServiceClient} from './services/QuizzesServiceClient';
 import { HomeComponent } from './home/home.component';
 import { QuizComponent } from './quiz/quiz.component';
 import { QuizzesComponent } from './quizzes/quizzes.component';
@@ -45,8 +45,8 @@ import { MultipleChoiceQuestionComponent } from './multiple-choice-question/mult
     CourseServiceClient,
     ModuleServiceClient,
     LessonServiceClient,
-    QuizzesServiceClient,
-    QuizServiceClient
+    QuizServiceClient,
+    QuestionServiceClient
   ],
   bootstrap: [AppComponent]
 })
