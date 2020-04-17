@@ -1,29 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import {QuestionServiceClient} from '../services/QuestionServiceClient';
+import {QuizServiceClient} from '../services/QuizServiceClient';
 import {ActivatedRoute} from '@angular/router';
+
 
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
-  styleUrls: ['./question.css']
+  styleUrls: ['./quiz.component.css']
 })
 export class QuizComponent implements OnInit {
 
-  constructor(private service: QuestionServiceClient,
-              private route: ActivatedRoute) { }
-
+  constructor(private service: QuizServiceClient,
+              private route: ActivatedRoute) {
+  }
   quizId = ''
-  quiz = {id: '', title: ''}
-  questions = []
-
+  questions = [];
+  quiz = {id: '', title: ''};
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.quizId = params.qid
+      this.quizId = params.qid;
       this.service.findQuizById(this.quizId)
-      .then( quiz => this.quiz = quiz);
+      .then(quiz => this.quiz = quiz);
       this.service.findQuestionsForQuiz(this.quizId)
       .then(questions => this.questions = questions);
     });
   }
-
+  submitQuiz = () => {
+    fetch(`http://localhost:3000/api/quizzes/${this.quizId}/attempts`, {
+      method: 'POST',
+      body: JSON.stringify(this.questions), headers: {
+        'content-type': 'application/json'
+      }
+    }).then(response => response.json())
+    .then(result => console.log(result));
+  }
 }
+
+

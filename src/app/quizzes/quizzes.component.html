@@ -5,6 +5,13 @@
       <a routerLink="/courses/{{courseId}}/quizzes/{{quiz._id}}">
         {{quiz.title}}
       </a>
+      <br/>
+      Attempts: {{quiz.attempts ? quiz.attempts.length : 0}}
+      <ul>
+        <li *ngFor="let attempt of quiz.attempts">
+          {{attempt.score.toFixed(2)}}%
+        </li>
+      </ul>
       <a class="btn btn-primary float-right"
          routerLink="/courses/{{courseId}}/quizzes/{{quiz._id}}">
         Start </a>
