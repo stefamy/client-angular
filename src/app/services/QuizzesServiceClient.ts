@@ -3,9 +3,9 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class QuizzesServiceClient {
   findAllQuizzes = () =>
-    fetch(`http://localhost:3000/api/quizzes`)
+    fetch(`https://whiteboard-node-server-cs5610.herokuapp.com/api/quizzes`)
     .then(response => response.json())
   findQuizAttempts = (qid) =>
-    fetch(`http://localhost:3000/api/quizzes/${qid}/attempts`)
+    fetch(`https://whiteboard-node-server-cs5610.herokuapp.com/api/quizzes/${qid}/attempts`)
   .then(response => response.json())
 }
