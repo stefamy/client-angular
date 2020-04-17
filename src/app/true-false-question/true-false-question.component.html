@@ -15,6 +15,7 @@
         type="radio"
         value="true"
         disabled="{{graded}}"
+        (change)="selectAnswer()"
         name="{{question._id}}"/> TRUE
         <span class="answer-reveal" [hidden]="!graded || (answer !== 'true' && question.correct !== 'true')">
           <i [hidden]="question.correct !== 'true'" class="fa fa-check text-success float-right"></i>
@@ -29,6 +30,7 @@
         type="radio"
         value="false"
         disabled="{{graded}}"
+        (change)="selectAnswer()"
         name="{{question._id}}"/> FALSE
       <span class="answer-reveal" [hidden]="!graded || (answer !== 'false' && question.correct !== 'false')">
           <i [hidden]="question.correct !== 'false'" class="fa fa-check text-success float-right"></i>
@@ -39,5 +41,6 @@
   <div class="mt-3 mb-3">
     Your answer: {{answer && answer.toUpperCase()}}
   </div>
-  <button class="btn btn-success" (click)="submitAnswer()" type="submit">Grade</button>
+  <button [hidden]="graded" class="btn btn-secondary" (click)="submitAnswer()" type="submit">Grade question</button>
+  <button [hidden]="!graded" class="btn btn-secondary btn-disabled" type="submit" disabled>Question graded</button>
 </div>

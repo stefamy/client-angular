@@ -8,8 +8,9 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class MultipleChoiceQuestionComponent implements OnInit {
 
   @Input()
-  question = {_id: '', title: '', question: '', answer: '', choices: '', correct: ''};
-  graded = false;
+  question
+  @Input()
+  graded
   result = false;
   @Input()
   answer = 'NA';
@@ -17,9 +18,11 @@ export class MultipleChoiceQuestionComponent implements OnInit {
   answerChange = new EventEmitter<string>();
 
   submitAnswer = () => {
-    this.result = this.question.correct === this.answer;
     this.graded = true;
+  }
+  selectAnswer = () => {
     this.answerChange.emit(this.answer);
+    this.result = this.question.correct === this.answer;
   }
 
   ngOnInit(): void {

@@ -13,6 +13,7 @@
              type="radio"
              value="{{choices}}"
              disabled="{{graded}}"
+             (change)="selectAnswer()"
              name="{{question._id}}"/> {{choices}}
        <span class="answer-reveal" [hidden]="!graded || (choices !== answer && choices !== question.correct)">
         <i [hidden]="choices !== question.correct" class="fa fa-check text-success float-right"></i>
@@ -23,4 +24,5 @@
 <div class="mt-3 mb-3">
   Your answer: {{answer}}
 </div>
-<button class="btn btn-success" (click)="submitAnswer()" type="submit">Grade</button>
+<button [hidden]="graded" class="btn btn-secondary" (click)="submitAnswer()" type="submit">Grade question</button>
+<button [hidden]="!graded" class="btn btn-secondary btn-disabled" type="submit" disabled>Question graded</button>

@@ -71,6 +71,11 @@ a.home-link:active {
   border-color: #f5c6cb;
 }
 
+.btn.btn-disabled:disabled {
+  cursor: auto;
+  opacity: 0.45;
+}
+
 @media all and (min-width: 768px) {
   .featured-image-banner {
     height: 250px;

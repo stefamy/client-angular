@@ -8,8 +8,9 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 export class TrueFalseQuestionComponent implements OnInit {
 
   @Input()
-  question = {_id: '', title: '', question: '', correct: ''};
-  graded = false;
+  question
+  @Input()
+  graded
   result = false;
   @Input()
   answer = 'NA';
@@ -19,7 +20,10 @@ export class TrueFalseQuestionComponent implements OnInit {
   submitAnswer = () => {
     this.result = this.question.correct === this.answer;
     this.graded = true;
+  }
+  selectAnswer = () => {
     this.answerChange.emit(this.answer);
+    this.result = this.question.correct === this.answer;
   }
 
   ngOnInit(): void {

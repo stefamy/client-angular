@@ -15,6 +15,6 @@ export class QuizServiceClient {
         'content-type': 'application/json'
       }
     }).then(response => response.json())
-    .then(result => console.log(result));
+    .then(result => result);
   }
 }
